@@ -5,7 +5,7 @@ from calc import calc, handle_calc
 from start import start
 
 
-def register_handlers(app)
+def register_handlers(app):
 
     app.add_handler(CommandHandler("start", start))
   
