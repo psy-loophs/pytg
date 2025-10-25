@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters 
 
 
-from calc import calc
+from calc import handlers
 from start import start
 
 load_dotenv()
