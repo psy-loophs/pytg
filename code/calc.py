@@ -17,12 +17,16 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if text.isdigit():
             num = int(text)
             await update.message.reply_text(f"You entered {num}. ✅")
-            del user_waiting_for_number[uid]  # clear after use
+            del user_waiting_for_number[uid]  
         else:
             await update.message.reply_text("❌ Please send a valid number.")
         return
     
 
-app.add_handler(CommandHandler("calc", calc))
-app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, calc))
+#app.add_handler(CommandHandler("calc", calc))
+#app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, calc))
+    
+def main():
+    app.add_handler(CommandHandler("calc", calc))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, calc))
     
