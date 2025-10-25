@@ -21,7 +21,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         else:
             await update.message.reply_text("❌ Please send a valid number.")
             user_waiting_for_number[uid] = True
-            await update.message.reply_text("Enter a number:")
+            if text=="/start"
             return
        
     
