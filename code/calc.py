@@ -3,11 +3,22 @@ from telegram.ext import ContextTypes
 
 
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Enter a number: ")
-    if text.isdigit():
-        num = int(text)
-        await update.message.reply_text(f"You entered {num}.")
-    else:
-        await update.message.reply_text("❌ Please send a valid number.")
-      
+    uid = update.message.from_user.id
+    text = update.message.text.strip()
+
+
+    if text == "/calc":
+        user_waiting_for_number[uid] = True
+        await update.message.reply_text("Enter a number:")
+        return
+
+    if uid in user_waiting_for_number:
+        if text.isdigit():
+            num = int(text)
+            await update.message.reply_text(f"You entered {num}. ✅")
+            del user_waiting_for_number[uid]  # clear after use
+        else:
+            await update.message.reply_text("❌ Please send a valid number.")
+        return
+    
 
