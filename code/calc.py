@@ -22,8 +22,10 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text("❌ Please send a valid number.")
        
     
+def handlers():
+    return [
+        CommandHandler("calc", calc),
+        MessageHandler(filters.TEXT & ~filters.COMMAND, calc)
+    ]
 
-
-    app.add_handler(CommandHandler("calc", calc))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, calc))
     
