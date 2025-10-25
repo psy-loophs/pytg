@@ -8,8 +8,9 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.strip()
 
     if text.startswith("/") and not text.startswith("/calc"):
-          del user_waiting_for_number[uid]=True
-          return 
+        user_waiting_for_number[uid]=False
+        
+        
         
         
         
