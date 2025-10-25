@@ -1,7 +1,7 @@
 from telegram import Update 
 from telegram.ext import ContextTypes
 
-user_waiting_for_number=None
+user_waiting_for_number={}
 
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.message.from_user.id
