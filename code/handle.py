@@ -1,8 +1,8 @@
 from telegram.ext import CommandHandler, MessageHandler, filters
 
 
-from calc import calc, handle_calc
-from start import start
+#from calc import calc, handle_calc
+#from start import start
 
 
 def register_handles(app):
