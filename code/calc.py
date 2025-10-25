@@ -6,7 +6,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-"""async def handle_calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def handle_calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
     if text.isdigit():
         num = int(text)
@@ -14,4 +14,4 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await update.message.reply_text("❌ Please send a valid number.")
       
-"""
+
