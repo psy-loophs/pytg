@@ -7,8 +7,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.message.from_user.id
     text = update.message.text.strip()
 
-    if text.startswith("/") and not text.startswith("/calc"):
-        return 
+    
         
         
         
@@ -22,7 +21,8 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_waiting_for_number[uid] = True
         await update.message.reply_text("Enter a number:")
         return
-
+    if text.startswith("/") and not text.startswith("/calc"):
+        return 
     if uid in user_waiting_for_number:
         if text.isdigit():
             num = int(text)
