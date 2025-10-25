@@ -7,7 +7,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.message.from_user.id
     text = update.message.text.strip()
 
-    if text.startswith("/start") or text.startswith("/"):
+    if text.startswith("/start") or text.startswith("/") and not text.startswith("/calc"):
         return 
 
 
