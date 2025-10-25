@@ -20,12 +20,6 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
             del user_waiting_for_number[uid]  
         else:
             await update.message.reply_text("❌ Please send a valid number.")
+            return
        
-    
-def handlers():
-    return [
-        CommandHandler("calc", calc),
-        MessageHandler(filters.TEXT & ~filters.COMMAND, calc)
-    ]
-
     
