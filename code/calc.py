@@ -23,3 +23,6 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     
 
+app.add_handler(CommandHandler("calc", calc))
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, calc))
+    
