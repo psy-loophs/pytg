@@ -1,10 +1,12 @@
 from telegram import Update 
 from telegram.ext import ContextTypes
 
-num=0
+num=1
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Enter a number: ")
-return num
+    return num
+    
+
 
 async def handle_calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
