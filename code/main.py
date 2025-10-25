@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-from handle import register_handles
+
 from calc import calc, handle_calc
 from start import start
 
@@ -13,6 +13,12 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
+    
+    app.add_handler(CommandHandler("start", start))
+  
+    app.add_handler(CommandHandler("calc", calc))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_calc))
+    
     print("🤖 Bot is running...")
     app.run_polling()
 
