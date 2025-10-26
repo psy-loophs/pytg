@@ -18,7 +18,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if text.isdigit():
             num = int(text)
             await update.message.reply_text("Enter another number: ")
-            if text.isdigit()
+            if text.isdigit():
             num1=int(text)
             await update.message.reply_text(num + num1)
             
