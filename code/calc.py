@@ -49,5 +49,4 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
             del active_user[uid] 
             return
       
-    del active_user
-    return
+    del active_user[uid]
