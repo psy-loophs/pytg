@@ -2,8 +2,6 @@ from telegram import Update
 from telegram.ext import ContextTypes
 
 active_user={}
-active_user[uid] = "waiting_first"  
-active_user[uid] = "waiting_second"
 entered_num={}
 entered_num["number1"]=[]
 entered_num["number2"]=[]
@@ -13,6 +11,8 @@ entered_num["number2"]=[]
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.message.from_user.id
     text = update.message.text.strip()
+    active_user[uid] = "waiting_first"  
+    active_user[uid] = "waiting_second"
 
     
     if text == "/calc":
