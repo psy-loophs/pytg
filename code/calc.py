@@ -41,7 +41,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
         if uid in active_user_num2:
             
-            text.isdigit():
+            text.isdigit()
             num2 = int(text)
             entered_num["number2"].append(num2)
             total=entered_num["number1"][0] + entered_num["number2"][0]
