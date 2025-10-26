@@ -23,7 +23,8 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
             
     if user_waiting_for_number[uid] !=None:
-    await update.message.reply_text("Enter another number: ")
+        await update.message.reply_text("Enter another number: ")
+    
     
         
         
