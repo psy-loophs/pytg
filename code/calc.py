@@ -35,7 +35,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
            
         
   
-    if uid in active_user_num2:
+    if entered_num["number1"] is not None:
         active_user_num2[uid] = True
         await update.message.reply_text("Enter second number:")
         return
