@@ -2,6 +2,8 @@ from telegram import Update
 from telegram.ext import ContextTypes
 
 user_waiting_for_number={}
+entered_num={}
+entered_num["numbers"]=[]
 
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.message.from_user.id
@@ -16,7 +18,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
            
     if uid in user_waiting_for_number:
         if text.isdigit():
-            num = int(text)
+            num = entered_num["number"]
     else:
            await update.message.reply_text("❌ Please send a valid number.")
            del user_waiting_for_number[uid] 
