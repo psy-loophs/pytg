@@ -36,8 +36,8 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
   
     if uid in active_user:
       await update.message.reply_text("Enter second number:")
-       
-        
+      return
+         
     if uid in active_user:
         if text.isdigit():
             num2 = int(text)
