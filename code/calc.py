@@ -49,7 +49,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
 await update.message.reply_text(num1 + num2)
 del active_user[uid]
-   return
+return
 
    
    
