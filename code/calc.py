@@ -11,19 +11,17 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if text == "/calc":
         user_waiting_for_number[uid] = True
         await update.message.reply_text("Enter a number:")
-        return
- 
-    if text.startswith("/") and not text.startswith("/calc"):
-           if uid in user_waiting_for_number:
-               await update.message.reply_text("cancelled")
-               del user_waiting_for_number[uid]
-               return
+        
              
            
     if uid in user_waiting_for_number:
         if text.isdigit():
             num = int(text)
-            await update.message.reply_text(f"You entered {num}. ✅")
+            await update.message.reply_text("Enter another number: ")
+            if text.isdigit()
+            num1=int(text)
+            await update.message.reply_text(num + num1)
+            
             del user_waiting_for_number[uid]  
         else:
             await update.message.reply_text("❌ Please send a valid number.")
