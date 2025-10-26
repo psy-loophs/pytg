@@ -34,7 +34,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
            
         
   
-    if text."/calc" is True 
+    if text./calc is True 
         #active_user[uid] = True
         await update.message.reply_text("Enter second number:")
         return
