@@ -26,11 +26,9 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
             entered_num["number1"].append(num1)
         else:
           await update.message.reply_text("❌ Please send a valid first number.")
-          del active_user[uid]
+          del active_user[uid] 
           return
-            
-            
-        
+           
         
   
     if uid in active_user and entered_num["number1"] is not None:
@@ -44,12 +42,16 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("❌ Please send a valid second number.")
         del active_user[uid] 
         return
+      
+      
+      await update.message.reply_text(num1 + num2)
+      del active_user[uid]
+      return
     
         
         
-await update.message.reply_text(num1 + num2)
-del active_user[uid]
-return
+
+   
 
    
    
