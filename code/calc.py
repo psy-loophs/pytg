@@ -11,8 +11,6 @@ entered_num["number2"]=[]
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.message.from_user.id
     text = update.message.text.strip()
-    active_user[uid] = "waiting_first"  
-    active_user[uid] = "waiting_second"
 
     
     if text == "/calc":
@@ -34,7 +32,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
            
         
   
-    if uid in active_user and active_user[uid]=="waiting_second":
+    if uid in active_user:
       await update.message.reply_text("Enter second number:")
       return
       
@@ -42,17 +40,15 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
       if text.isdigit():
         num2 = int(text)
         entered_num["number2"].append(num2)
-        await update.message.reply_text("sum is",num1 + num2)
-        del active_user[uid]
-        raise SystemExit
-          
       else:
         await update.message.reply_text("❌ Please send a valid second number.")
         del active_user[uid] 
         return
       
       
-      
+      await update.message.reply_text(num1 + num2)
+      del active_user[uid]
+      return
     
         
         
