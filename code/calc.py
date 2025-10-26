@@ -38,20 +38,12 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
          if text.isdigit():
            num2 = int(text)
            entered_num["number2"].append(num2)
+           await update.message.reply_text(num1 + num2)
+           del active_user[uid]
+           return
+           
          else:
             await update.message.reply_text("❌ Please send a valid second number.")
             del active_user[uid] 
             return
       
-      
-    await update.message.reply_text(num1 + num2)
-    del active_user[uid]
-    return
-    
-        
-        
-
-   
-
-   
-   
