@@ -39,9 +39,8 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
         active_user_num2[uid] = True
         await update.message.reply_text("Enter second number:")
         return
-         
-    if uid in active_user_num2:
-        if text.isdigit():
+        if uid in active_user_num2:
+            if text.isdigit():
             num2 = int(text)
             entered_num["number2"].append(num2)
             total=entered_num["number1"][0] + entered_num["number2"][0]
@@ -55,5 +54,9 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text("❌ Please send a valid second number.")
             del active_user[uid] 
             return
+            
+
+         
+
       
 
