@@ -1,39 +1,52 @@
-from telegram import Update
+from telegram import Update 
 from telegram.ext import ContextTypes
 
-user_waiting_for_number = {}  # Tracks which number the user is entering
-entered_num = {}              # Stores user numbers
+active_user={}
+entered_num={}
+entered_num["number1"]=[]
+entered_num["number2"]=[]
+
+
 
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.message.from_user.id
     text = update.message.text.strip()
 
-    # Start the calculation
+    
     if text == "/calc":
-        user_waiting_for_number[uid] = 1  # 1 = waiting for first number
-        entered_num[uid] = []
-        await update.message.reply_text("Enter the first number:")
+        active_user[uid] = True
+        await update.message.reply_text("Enter first number:")
         return
-
-    # Check if user is in calculation flow
-    if uid in user_waiting_for_number:
+        
+             
+           
+    if uid in active_user:
         if text.isdigit():
-            num = int(text)
-            entered_num[uid].append(num)
-            
-            if user_waiting_for_number[uid] == 1:
-                user_waiting_for_number[uid] = 2
-                await update.message.reply_text("Enter the second number:")
-            elif user_waiting_for_number[uid] == 2:
-                total = sum(entered_num[uid])
-                await update.message.reply_text(f"The sum is: {total}")
-                # Cleanup
-                del user_waiting_for_number[uid]
-                del entered_num[uid]
+            num1 = int(text)
+            entered_num["number1"].append(num1)
         else:
-            await update.message.reply_text("❌ Please send a valid number.")
-    else:
-        # User not in calculation mode
-        if text.startswith("/"):
-            return  # Ignore other commands
-        await update.message.reply_text("Send /calc to start a calculation.")
+          await update.message.reply_text("❌ Please send a valid first number.")
+          del active_user[uid] 
+           return
+        
+  
+    if uid in active_user and entered_num["number1"] is not None:
+      await update.message.reply_text("Enter second number:")
+      
+      
+      if text.isdigit():
+        num2 = int(text)
+        entered_num["number2"].append(num2)
+      else:
+        await update.message.reply_text("❌ Please send a valid second number.")
+        del active_user[uid] 
+        return
+    
+        
+        
+await update.message.reply_text(num1 + num2)
+del active_user[uid]
+   return
+
+   
+   
