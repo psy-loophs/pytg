@@ -26,8 +26,11 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
             entered_num["number1"].append(num1)
         else:
           await update.message.reply_text("❌ Please send a valid first number.")
-          del active_user[uid] 
-           return
+          del active_user[uid]
+          return
+            
+            
+        
         
   
     if uid in active_user and entered_num["number1"] is not None:
