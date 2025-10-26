@@ -26,16 +26,16 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
         
             
-    if uid in user_waiting_for_number and user_waiting_for_number[uid] is not None:
+    if user_waiting_for_number[uid] is not None:
         await update.message.reply_text("Enter another number: ")
         
     if uid in user_waiting_for_number:
         if text.isdigit():
-            num1=int(text)
-            await update.message.reply_text(num + num1)
-            
+            num2=int(text)
+            entered_num["number"].append(num2)
+            await update.message.reply_text(num1 + num2)
             del user_waiting_for_number[uid]  
-                
+            
     else:
         await update.message.reply_text("❌ Please send a valid number.")
         return 
