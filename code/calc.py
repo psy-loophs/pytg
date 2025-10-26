@@ -52,8 +52,8 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
 total=entered_num["number1"][0] + entered_num["number2"][0]
 await update.message.reply_text(total)
-del entered_num["number1"]=[]
-del entered_num["number2"]=[]
+del entered_num["number1"]
+del entered_num["number2"]
 
       
 
