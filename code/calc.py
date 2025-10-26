@@ -19,7 +19,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if uid in user_waiting_for_number:
         if text.isdigit():
             num1 = int(text)
-            entered_num["number"].append(num1)
+            entered_num["numbers"].append(num1)
     else:
            await update.message.reply_text("❌ Please send a valid number.")
            del user_waiting_for_number[uid] 
@@ -32,7 +32,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if uid in user_waiting_for_number:
         if text.isdigit():
             num2=int(text)
-            entered_num["number"].append(num2)
+            entered_num["numbers"].append(num2)
             await update.message.reply_text(num1 + num2)
             del user_waiting_for_number[uid]  
             
