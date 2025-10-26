@@ -38,7 +38,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
          if text.isdigit():
            num2 = int(text)
            entered_num["number2"].append(num2)
-           await update.message.reply_text(num1 + num2)
+           await update.message.reply_text(entered_num["number1"] + entered_num["number2"])
            del active_user[uid]
            return
            
