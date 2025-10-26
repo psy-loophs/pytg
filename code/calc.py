@@ -2,6 +2,8 @@ from telegram import Update
 from telegram.ext import ContextTypes
 
 active_user={}
+active_user[uid] = "waiting_first"  
+active_user[uid] = "waiting_second"
 entered_num={}
 entered_num["number1"]=[]
 entered_num["number2"]=[]
@@ -32,7 +34,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
            
         
   
-    if uid in active_user and entered_num["number1"] is not None:
+    if uid in active_user and active_user[uid]=="waiting_second":
       await update.message.reply_text("Enter second number:")
       return
       
