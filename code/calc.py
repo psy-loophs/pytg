@@ -5,6 +5,8 @@ active_user={}
 entered_num={}
 entered_num["number1"]=[]
 entered_num["number2"]=[]
+num1=None
+num2=None
 
 
 
