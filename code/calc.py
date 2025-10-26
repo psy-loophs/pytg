@@ -16,6 +16,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if text.startswith("/") and not text.startswith("/calc"):
            if uid in user_waiting_for_number:
             del user_waiting_for_number[uid]
+               await update.message.reply_text("cancelled the calculation")
             return 
            
     if uid in user_waiting_for_number:
