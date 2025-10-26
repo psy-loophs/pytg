@@ -22,8 +22,10 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
             del user_waiting_for_number[uid] 
             return
             
-    if user_waiting_for_number[uid] = True:
-        await update.message.reply_text("Enter another number: ")
+    user_waiting_for_number[uid] = True:
+    await update.message.reply_text("Enter another number: ")
+    
+        
         
     if uid in user_waiting_for_number:
         if text.isdigit():
