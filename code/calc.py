@@ -1,7 +1,8 @@
 from telegram import Update 
 from telegram.ext import ContextTypes
 
-active_user={}
+active_user_num1={}
+active_user_num2={}
 entered_num={}
 entered_num["number1"]=[]
 entered_num["number2"]=[]
@@ -16,30 +17,30 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     
     if text == "/calc":
-        active_user[uid] = True
+        active_user_num1[uid] = True
         await update.message.reply_text("Enter first number:")
         return
         
              
            
-    if uid in active_user:
+    if uid in active_user_num1:
         if text.isdigit():
             num1 = int(text)
             entered_num["number1"].append(num1)
         else:
           await update.message.reply_text("❌ Please send a valid first number.")
-          del active_user[uid]
+          del active_user_num1[uid]
           return
           
            
         
   
-    if uid in active_user:
-        active_user[uid] = True
+    if uid in active_user_num2:
+        active_user_num2[uid] = True
         await update.message.reply_text("Enter second number:")
         return
          
-    if uid in active_user:
+    if uid in active_user_num2:
         if text.isdigit():
             num2 = int(text)
             entered_num["number2"].append(num2)
