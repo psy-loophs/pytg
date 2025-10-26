@@ -20,7 +20,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await update.message.reply_text("❌ Please send a valid number.")
         del user_waiting_for_number[uid] 
-        return 
+    return 
         
             
     if uid in user_waiting_for_number and user_waiting_for_number[uid] is not None:
